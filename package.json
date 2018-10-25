@@ -1,0 +1,50 @@
+{
+  "name": "aws-lambda-template",
+  "version": "1.0.0",
+  "description": "AWS Lambda Template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bypasslane/aws-lambda-template.git"
+  },
+  "scripts": {
+    "start": "serverless offline start --stage=development",
+    "debug": "node --inspect ./node_modules/.bin/serverless offline start --stage=development",
+    "dev:output-off": "serverless offline start --stage=development --dontPrintOutput",
+    "debug:output-off": "node --inspect ./node_modules/.bin/serverless offline start --stage=development --dontPrintOutput",
+    "test": "NODE_ENV=testing ./node_modules/.bin/jest",
+    "deploy:sandbox": "serverless --stage=sandbox deploy",
+    "deploy:integration": "serverless --stage=integration deploy",
+    "deploy:production": "serverless --stage=production deploy",
+    "docs": "serverless openapi generate --stage=production && ./node_modules/.bin/spectacle openapi.yml"
+  },
+  "author": "Ben Rubin",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "js-yaml": "^3.12.0",
+    "pino": "^4.17.3"
+  },
+  "dependencies-with-mysql": {
+    "dotenv": "^5.0.1",
+    "js-yaml": "^3.12.0",
+    "pino": "^5.4.0",
+    "pino-pretty": "^2.0.1",
+    "knex": "^0.15.2",
+    "mysql2": "^1.5.3"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.241.1",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "jest": "^23.4.1",
+    "serverless": "^1.26.1",
+    "serverless-offline": "^3.20.1",
+    "serverless-openapi-documentation": "^0.4.0",
+    "spectacle-docs": "^1.0.5"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/_test-setup.js"
+    ]
+  }
+}

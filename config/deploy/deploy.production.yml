@@ -1,0 +1,6 @@
+SECURITY_GROUPS:
+  - sg-id
+SUBNET_IDS:
+  - subnet-id
+STACK: aws1
+STAGE: production
